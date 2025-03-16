@@ -1,33 +1,34 @@
-# This is my package contextr
+<div align="center">
+    <picture>
+    <source
+    srcset="https://raw.githubusercontent.com/jeffreyvr/contextr/refs/heads/main/art/logo-light.svg"
+    media="(prefers-color-scheme: dark)"
+    height="50"
+    />
+    <img
+    src="https://raw.githubusercontent.com/jeffreyvr/contextr/refs/heads/main/art/logo-dark.svg"
+    alt="contextr logo"
+    height="50"
+    />
+    </picture>
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffreyvr/contextr.svg?style=flat-square)](https://packagist.org/packages/jeffreyvr/contextr)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffreyvr/contextr/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/jeffreyvr/contextr/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffreyvr/contextr/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/jeffreyvr/contextr/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/jeffreyvr/contextr.svg?style=flat-square)](https://packagist.org/packages/jeffreyvr/contextr)
+  <h3 align="center">contextr</h3>
+</div>
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+<p align="center">
+<a href="https://packagist.org/packages/jeffreyvanrossum/contextr-for-laravel"><img src="https://img.shields.io/packagist/dt/jeffreyvanrossum/contextr-for-laravel" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/jeffreyvanrossum/contextr-for-laravel"><img src="https://img.shields.io/packagist/v/jeffreyvanrossum/contextr-for-laravel" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/jeffreyvanrossum/contextr-for-laravel"><img src="https://img.shields.io/packagist/l/jeffreyvanrossum/contextr-for-laravel" alt="License"></a>
+</p>
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/contextr.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/contextr)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+AI-driven text analysis for spam, sentiment, moderation, and more.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require jeffreyvr/contextr
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="contextr-migrations"
-php artisan migrate
+composer require jeffreyvanrossum/contextr-for-laravel
 ```
 
 You can publish the config file with:
@@ -36,31 +37,27 @@ You can publish the config file with:
 php artisan vendor:publish --tag="contextr-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="contextr-views"
-```
-
 ## Usage
 
 ```php
-$contextrForLaravel = new ContextrForLaravel\ContextrForLaravel();
-echo $contextrForLaravel->echoPhrase('Hello, ContextrForLaravel!');
+Contextr::spam()
+    ->text('Buy cheap viagra now!!! Click here: shady.link')
+    ->context([
+        'topic' => 'Health Forum Discussion',
+        'user_history' => 'First time poster'
+    ])
+    ->withReasoning()
+    ->analyze();
+
+$check->data();         // full result array
+$check->spam();         // true (boolean)
+$check->confidence();   // 0.95 (float)
+$check->reasoning();    // "Contains promotional content and suspicious link"
 ```
 
-## Testing
+For more examples, see:
 
-```bash
-composer test
-```
+https://github.com/jeffreyvr/contextr?tab=readme-ov-file#examples
 
 ## Changelog
 
