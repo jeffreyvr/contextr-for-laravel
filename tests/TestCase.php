@@ -2,9 +2,9 @@
 
 namespace ContextrForLaravel\ContextrForLaravel\Tests;
 
+use ContextrForLaravel\ContextrForLaravel\ContextrForLaravelServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use ContextrForLaravel\ContextrForLaravel\ContextrForLaravelServiceProvider;
 
 class TestCase extends Orchestra
 {

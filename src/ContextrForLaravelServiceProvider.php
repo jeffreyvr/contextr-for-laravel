@@ -22,16 +22,16 @@ class ContextrForLaravelServiceProvider extends PackageServiceProvider
             ->name('contextr')
             ->hasConfigFile();
 
-        $this->app->singleton('contextr', function($app) {
+        $this->app->singleton('contextr', function ($app) {
             $provider = null;
             $defaultProvider = config('contextr.default_provider', 'openai');
 
-            if($defaultProvider === 'openai') {
+            if ($defaultProvider === 'openai') {
                 $provider = new OpenAi(
                     apiKey: config('contextr.providers.openai.api_key'),
                     model: config('contextr.providers.openai.model', 'gpt-4o-mini')
                 );
-            } elseif($defaultProvider === 'grok') {
+            } elseif ($defaultProvider === 'grok') {
                 $provider = new Grok(
                     apiKey: config('contextr.providers.grok.api_key'),
                     model: config('contextr.providers.grok.model', Model::GROK_2_LATEST)

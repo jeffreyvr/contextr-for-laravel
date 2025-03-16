@@ -6,12 +6,12 @@ return [
     'providers' => [
         'openai' => [
             'api_key' => env('CONTEXTR_OPENAI_API_KEY'),
-            'model' => env('CONTEXTR_OPENAI_MODEL')
+            'model' => env('CONTEXTR_OPENAI_MODEL'),
         ],
 
         'grok' => [
             'api_key' => env('CONTEXTR_GROK_API_KEY'),
-            'model' => env('CONTEXTR_GROK_MODEL')
+            'model' => env('CONTEXTR_GROK_MODEL'),
         ],
-    ]
+    ],
 ];
