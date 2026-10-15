@@ -29,7 +29,7 @@ class ContextrForLaravelServiceProvider extends PackageServiceProvider
             if ($defaultProvider === 'openai') {
                 $provider = new OpenAi(
                     apiKey: config('contextr.providers.openai.api_key'),
-                    model: config('contextr.providers.openai.model', 'gpt-4o-mini')
+                    model: OpenAiModel::resolve(config('contextr.providers.openai.model'))
                 );
             } elseif ($defaultProvider === 'grok') {
                 $provider = new Grok(

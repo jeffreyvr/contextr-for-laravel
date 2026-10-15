@@ -1,8 +1,8 @@
 <?php
 
-namespace ContextrForLaravel\ContextrForLaravel\Tests;
+namespace ContextrForLaravel\Tests;
 
-use ContextrForLaravel\ContextrForLaravel\ContextrForLaravelServiceProvider;
+use ContextrForLaravel\ContextrForLaravelServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
