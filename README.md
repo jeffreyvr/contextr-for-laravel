@@ -37,14 +37,6 @@ You can publish the config file with:
 php artisan vendor:publish --tag="contextr-config"
 ```
 
-The OpenAI provider defaults to `gpt-6-luna`.
-
-OpenAI retires GPT-4o, GPT-4o mini, GPT-4.1, and GPT-4.1 mini on January 14, 2027. The recommended replacement is `gpt-6-luna` ([deprecations](https://developers.openai.com/api/docs/deprecations)).
-
-`CONTEXTR_OPENAI_MODEL` — including a value already saved in a published config — may still name one of those models or a dated snapshot from that notice (`gpt-4o-2024-08-06`, `gpt-4o-2024-11-20`, `gpt-4o-mini-2024-07-18`, `gpt-4.1-2025-04-14`, `gpt-4.1-mini-2025-04-14`). From 2027-01-14 (UTC) this package sends `gpt-6-luna` instead. Until that date the configured id is left unchanged. Any other model id is sent as-is. The stored config value is not rewritten; the replacement is applied when the client is created.
-
-This package only chooses the model id. Request fields such as temperature and reasoning effort come from [`jeffreyvr/contextr`](https://github.com/jeffreyvr/contextr).
-
 ## Usage
 
 ```php
